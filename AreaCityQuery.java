@@ -1353,7 +1353,13 @@ public class AreaCityQuery {
 					, new Coordinate(x1, y0)
 					, new Coordinate(x0, y0)
 				});
-				Geometry chunk=polygon.intersection(gridItem);
+				Geometry chunk;
+				if (!polygon.isValid()) {
+					System.out.println("校验不通过");
+					chunk = polygon.buffer(0);
+				} else{
+					chunk=polygon.intersection(gridItem);
+				}
 				if(!chunk.isEmpty()) {
 					//如果有大的就继续拆分
 					if(chunk instanceof Polygon) {

@@ -729,7 +729,7 @@ public class Test {
 		};
 	}
 	static boolean ExtPathMatch(String prop, String exp) {
-		int i0=prop.indexOf("ext_path");
+		int i0=prop.indexOf("acroutes");
 		if(i0==-1)return false;
 		int i1=prop.indexOf(",", i0);
 		if(i1==-1)i1=prop.length();
